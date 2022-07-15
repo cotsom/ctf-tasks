@@ -6,8 +6,11 @@
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
 	</head>
 	<body>
-		<form action="/handler/date/" method="POST">
+		<h1 class="info">Find out the most accurate time only in our app</h1>
+		<form method="POST">
+			<input type="hidden" name="date" value="date">
 			<input type="submit" name="submit-button" value="get date" class="sliding-button">
 		</form>
+		<h2 class="info">{{ outputDate }}</h2>
 	</body>
 </html>

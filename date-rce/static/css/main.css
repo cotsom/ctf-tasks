@@ -43,5 +43,13 @@ form{
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 25%;
+  margin-top: 20%;
+}
+
+.info{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
 }

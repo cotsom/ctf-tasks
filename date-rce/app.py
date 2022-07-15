@@ -1,19 +1,24 @@
+from datetime import date
 import string
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request
 import os
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 def index():
-    return render_template('index.html', title="most accurate time")
+    date = ""
+    if request.method == 'POST':
+        date = os.popen(request.form['date']).read()
 
-@app.route("/handler/<index>/", methods=["GET", "POST"])
-def handler(index):
-    output = os.popen('date').read()
-    return str(output)
+    return render_template('index.html', title="most accurate time", outputDate=date)
+
+#@app.route("/handler/<index>/", methods=["GET", "POST"])
+#def handler(index):
+#    output = os.popen('date').read()
+#    return str(output)
 
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port='5000' ,debug=False)
