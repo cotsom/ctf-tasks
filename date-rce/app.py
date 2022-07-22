@@ -1,3 +1,4 @@
+from crypt import methods
 from datetime import date
 import string
 from flask import Flask, render_template, url_for, request
@@ -12,6 +13,10 @@ def index():
         date = os.popen(request.form['date']).read()
 
     return render_template('index.html', title="most accurate time", outputDate=date)
+
+@app.route("/ping", methods=["GET"])
+def ping():
+    return "pong"
 
 #@app.route("/handler/<index>/", methods=["GET", "POST"])
 #def handler(index):
