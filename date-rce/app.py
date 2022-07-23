@@ -14,14 +14,14 @@ def index():
 
     return render_template('index.html', title="most accurate time", outputDate=date)
 
+@app.errorhandler(404)
+def page_not_found(e):
+    route = request.path
+    return str(route)
+
 @app.route("/ping", methods=["GET"])
 def ping():
     return "pong"
-
-#@app.route("/handler/<index>/", methods=["GET", "POST"])
-#def handler(index):
-#    output = os.popen('date').read()
-#    return str(output)
 
 
 
